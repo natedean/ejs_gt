@@ -1,0 +1,66 @@
+<style>
+    body {
+        font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    }
+
+    a {
+        color: #00B7FF;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-bottom: 1px solid #535A6D;
+    }
+
+    .header__logo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5em;
+    }
+
+    .header__logoImage {
+        height: 50px;
+        width: 115px;
+    }
+
+    .header__link {
+        cursor: pointer;
+        padding: 1em;
+        background-color: #535A6D;
+        margin: 0 auto;
+        color: white;
+    }
+
+    @media (min-width: 600px) {
+        .header {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .header__linkContainer {
+            display: flex;
+        }
+
+        .header__link {
+            display: flex;
+            align-items: center;
+            border: 3px solid #535A6D;
+            transition: 0.4s all;
+            margin-right: 1px;
+        }
+
+        .header__link:last-of-type {
+            margin-right: 0;
+        }
+
+        .header__link:hover {
+            background-color: white;
+            color: #535A6D;
+        }
+
+    }
+
+</style>

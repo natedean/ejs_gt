@@ -1,0 +1,3 @@
+###To Start:
+
+`$ npm start`
