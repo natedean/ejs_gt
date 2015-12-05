@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "server": "node ./bin/www", 
+    "open": "open http://localhost:3000",
+    "start": "npm run open && npm run server"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
