@@ -11,7 +11,7 @@ gulp.task('serve', ['sass'], function() {
   browserSync.init({
       proxy: 'localhost:3000',
       serveStatic: ['.'],
-      port: 9000123
+      port: 9000
   });
 
   gulp.watch('./lib/sass/**/*.scss', ['sass']);
