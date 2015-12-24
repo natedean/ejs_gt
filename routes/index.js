@@ -5,10 +5,6 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/games', function(req, res, next) {
-  res.render('games', { title: 'Games' });
-});
-
 router.get('/nns', function(req, res, next) {
   res.render('nns', { title: 'Nashville Number System' });
 });
