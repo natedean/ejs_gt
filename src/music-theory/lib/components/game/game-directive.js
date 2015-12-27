@@ -7,18 +7,6 @@ export default function game() {
     template:`
     <div class="gtGameContainer" ng-class="{ 'gtGameContainer--offset': !vm.gameModel.isActive &&
                                                                           vm.gameModel.inactiveState.isCorrectAnswer }">
-      <div class="gtGameHeader">
-        <h5 class="gtGameHeader__cta">What Kind Of Questions Do You Want?</h5>
-        <div class="gtGameHeader__categoryButtonsContainer">
-          <button
-            ng-repeat="category in vm.categories"
-            class="button gtGameHeader__categoryBtn"
-            ng-class="{'gtGameHeader__categoryBtn--dormant': vm.selectedCategories.indexOf(category) < 0}"
-            ng-click="vm.selectCategory(category)">
-            {{ ::category }}
-          </button>
-        </div>
-      </div>
       <div class="gtGame">
         <div class="gtGame__questionTextContainer">
           <div class="gtGame__questionText">{{ vm.question.question }}</div>

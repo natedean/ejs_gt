@@ -11,7 +11,88 @@
   </script>
 </head>
 <body>
-<h1>test</h1>
+<style>
+  body {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+
+  a {
+    text-decoration: none;
+    display: inherit;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid #535A6D;
+  }
+
+  .header__logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5em;
+    cursor: pointer;
+  }
+
+  .header__logo:visited {
+    color: inherit;
+  }
+
+  .header__logoImage {
+    height: 50px;
+    width: 115px;
+  }
+
+  .header__link {
+    cursor: pointer;
+    padding: 1em;
+    background-color: #535A6D;
+    margin: 0 auto;
+    color: white;
+  }
+
+  @media (min-width: 480px) {
+    .header {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .header__linkContainer {
+      display: flex;
+    }
+
+    .header__link {
+      display: flex;
+      align-items: center;
+      border: 3px solid #535A6D;
+      transition: 0.4s all;
+      margin-right: 1px;
+    }
+
+    .header__link:last-of-type {
+      margin-right: 0;
+    }
+
+    .header__link:hover {
+      background-color: white;
+      color: #535A6D;
+    }
+
+  }
+</style>
+<header class="header">
+  <a href="/" class="header__logo">
+    <img src="/images/gtLogo.jpg" class="header__logoImage" alt="GuitarThinker Logo">
+    <span class="header__logoLabel">GuitarThinker</span>
+  </a>
+  <div class="header__linkContainer">
+    <a href="/games" class="header__link">Games</a>
+    <a href="/nns" class="header__link">NNS</a>
+    <a href="/blog" class="header__link">Blog</a>
+  </div>
+</header>
 <div ng-app="myApp" class="gtAppContainer">
   <sidebar></sidebar>
   <game></game>

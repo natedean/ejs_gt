@@ -19,8 +19,6 @@ router.get('/:apiRoute', function(req, res, next) {
   res.send(`You are trying to reach ${req.params.apiRoute}`);
 });
 
-router.get('/music-theory/question', function(req, res, next) {
-  res.send(fakeQuestion);
-});
+router.get('/music-theory/question', require('./api/music-theory/question'));
 
 module.exports = router;
