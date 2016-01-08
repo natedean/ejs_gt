@@ -25,6 +25,3 @@ angular.module('myApp', [animate])
   .directive('sidebar', sidebar)
   .directive('leaderboard', leaderboard)
   .directive('actionPanel', actionPanel);
-
-
-

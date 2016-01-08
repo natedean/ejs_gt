@@ -4,8 +4,8 @@
   position: fixed;
   top: 0;
   left: -120px;
-  background-color: rgb(27, 27, 35);
-  color: $color-tan;
+  background-color: #535A6D;
+  color: $color-white;
   overflow: hidden;
   z-index: 10;
   transition: transform $slide-transition-time;
@@ -38,7 +38,6 @@
 .gtSidebar__text--label{
   color: $color-tan-light;
   text-decoration: underline;
-  margin-bottom: -5px;
 }
 
 .gtSidebar__scoreLabel{

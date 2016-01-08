@@ -1,5 +1,8 @@
 .gtAppContainer {
-
+  height: calc(100vh - 65px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .gtGameContainer{
@@ -31,7 +34,6 @@
   background-position: 50% 50%;
   text-align: center;
   position: relative;
-  margin: 2em auto;
 
   @include breakpoint(mobile){
     width: 450px;

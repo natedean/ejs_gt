@@ -18,7 +18,7 @@ export default function sidebar() {
         </li>
         <li class="gtSidebar__item">
           <div id="div1">
-            <span class="gtSidebar__text gtSidebar__text--label gtSidebar__levelLabel">{{ 'level ' + vm.user.currLevel }}</span>
+            <span class="gtSidebar__text gtSidebar__levelLabel">{{ 'level ' + vm.user.currLevel }}</span>
           </div>
         </li>
         <li class="gtSidebar__item"></li>
