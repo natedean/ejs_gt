@@ -1,9 +1,6 @@
 var random = require('lodash/number/random');
 
-// I SUPPOSE THIS LIST NEEDS TO LIVE IN A SEPARATE FILE, BE IMPORTED INTO MONGO EACH TIME A USER
-// IS CREATED. THE QUESTIONS SHOULD BE PULLED RANDOMLY FROM MONGO, AND EACH TIME A QUESTION IS PULLED IT SHOULD BE
-// REMOVED FROM THAT USER'S STORE OF QUESTIONS. WHEN THE USER HAS NO MORE QUESTIONS IN HIS/HER BANK, IT SHOULD
-// BE RECOPIED FROM THE FILE.
+// Please put into mongodb/couchdb or whatever
 
 var questions = [{question: "How many sharps in the key of C Major?", answers: [{answer: 0, correct: true},{answer: 1,correct: false},{answer: 2,correct: false},{answer: 3,correct: false}]},
     {question: "How many sharps in the key of G Major?", answers: [{answer: 1, correct: true},{answer: 0,correct: false},{answer: 2,correct: false},{answer: 3,correct: false}]},
