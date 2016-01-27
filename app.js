@@ -9,7 +9,6 @@ var routes = require('./routes/index');
 var games = require('./routes/games');
 var users = require('./routes/users');
 var api = require('./routes/api');
-var auths = require('./routes/users/controllers/users.server.controller.js');
 
 var app = express();
 

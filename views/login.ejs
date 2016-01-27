@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <%include ./partials/critical-css.ejs%>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<%include ./partials/header.ejs%>
+
+<!--Temp "under construction" styles-->
+<style>
+    body {
+        height: 100%;
+    }
+
+    .login {
+        display: flex;
+        align-items: center;
+        height: calc(100vh - 100px);
+    }
+
+    .loginForm {
+        margin: 0 auto;
+        padding: 1em;
+        border: 1px solid #535A6D;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 1.2em;
+    }
+
+    .loginForm__label {
+        display: block;
+        text-align: left;
+        margin-bottom: 0.15em;
+    }
+
+    .loginForm__input {
+        padding: 0.25em;
+        margin-bottom: 1em;
+        border-radius: 5px;
+    }
+
+    .loginForm__submitBtn {
+        display: block;
+        margin: 0 auto;
+        background-color: transparent;
+        border-radius: 5px;
+        transition: 0.25s;
+        border: 2px solid #535A6D;
+        padding: 0.75em;
+    }
+
+    .loginForm__submitBtn:hover {
+        background-color: #535A6D;
+        color: white;
+    }
+</style>
+
+<div class="login">
+    <form action="/api/login" method="post" class="loginForm">
+        <label for="username" class="loginForm__label">Username</label>
+        <input type="text" name="username" class="loginForm__input" placeholder="Dude Duderson">
+        <label for="password" class="loginForm__label">Password</label>
+        <input type="password" name="password" class="loginForm__input" placeholder="Dudes!!!!">
+        <button type="submit" class="loginForm__submitBtn">submit</button>
+    </form>
+</div>
+
+</body>
+</html>
