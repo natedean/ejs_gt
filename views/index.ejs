@@ -16,6 +16,11 @@
       }
     </style>
 
+    <% if (locals.token) { %>
+      <!--TODO: Store token in localstorage via js-->
+      <h2><%= locals.token %></h2>
+    <% } %>
+
     <div class="underConstruction__container">
       <h1>GuitarThinker is currently under construction!</h1>
       <p>That's cool, because there is new stuff coming.  New games.  More coolness.</p>
