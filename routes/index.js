@@ -2,9 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-  var token = req.query.token;
-
-  res.render('index', { title: 'Express', token: token });
+  res.render('index', { title: 'Express' });
 });
 
 router.get('/nns', function(req, res, next) {

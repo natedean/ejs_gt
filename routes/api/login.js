@@ -10,7 +10,7 @@ const user = {
 const successCallback = (req, res, next) => {
     var token = jwt.sign({ username: 'test' }, jwtSecret);
 
-    res.redirect(`/?token=${token}`);
+    res.send({ message: 'You did it!', token });
 };
 
 const authenticateCredentials = (req, res, next) => {

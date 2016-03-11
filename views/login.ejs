@@ -58,14 +58,63 @@
 </style>
 
 <div class="login">
-    <form action="/api/login" method="post" class="loginForm">
+    <form class="loginForm">
         <label for="username" class="loginForm__label">Username</label>
-        <input type="text" name="username" class="loginForm__input" placeholder="Dude Duderson">
+        <input type="text" name="username" class="loginForm__input" placeholder="Dude Duderson" required>
         <label for="password" class="loginForm__label">Password</label>
-        <input type="password" name="password" class="loginForm__input" placeholder="Dudes!!!!">
+        <input type="password" name="password" class="loginForm__input" placeholder="Dudes!!!!" required>
         <button type="submit" class="loginForm__submitBtn">submit</button>
     </form>
 </div>
+
+<script>
+    var form = document.querySelector('.loginForm');
+
+    var eSubmitBtn = document.querySelector('.loginForm__submitBtn');
+
+    form.onsubmit = function(e){
+
+        window.console.log(e);
+
+        e.stopPropagation();
+        e.preventDefault();
+
+        setSubmittingState(true);
+        sendLoginRequest();
+    }
+
+    function sendLoginRequest(){
+        window.fetch('/api/login', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: form.querySelector('.loginForm__input[name="username"]').value,
+                password: form.querySelector('.loginForm__input[name="password"]').value
+            })
+        }).then(function(response){ return response.json();
+        }).then(function(response){
+            setSubmittingState(false);
+
+            window.localStorage.token = response.token;
+            window.location = '/';
+            // set token in local storage
+            // re-route to previous page??
+        }).catch(function(err){
+            setSubmittingState(false);
+            alert('Your username or password is incorrect');
+            window.console.log('failure.', err);
+        });
+    }
+
+    function setSubmittingState(isSubmitting){
+        var message = isSubmitting === true ? 'Submitting...' : 'Submit';
+        eSubmitBtn.textContent = message;
+        eSubmitBtn.disabled = isSubmitting;
+    }
+</script>
 
 </body>
 </html>
