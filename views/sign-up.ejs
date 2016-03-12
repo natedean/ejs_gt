@@ -14,13 +14,13 @@
         height: 100%;
     }
 
-    .login {
+    .signUp {
         display: flex;
         align-items: center;
         height: calc(100vh - 100px);
     }
 
-    .loginForm {
+    .signUpForm {
         margin: 0 auto;
         padding: 1em;
         border: 1px solid #535A6D;
@@ -29,19 +29,19 @@
         font-size: 1em;
     }
 
-    .loginForm__label {
+    .signUpForm__label {
         display: block;
         text-align: left;
         margin-bottom: 0.15em;
     }
 
-    .loginForm__input {
+    .signUpForm__input {
         padding: 0.25em;
         margin-bottom: 1em;
         border-radius: 5px;
     }
 
-    .loginForm__submitBtn {
+    .signUpForm__submitBtn {
         display: block;
         margin: 0 auto;
         background-color: transparent;
@@ -51,25 +51,25 @@
         padding: 0.75em;
     }
 
-    .loginForm__submitBtn:hover {
+    .signUpForm__submitBtn:hover {
         background-color: #535A6D;
         color: white;
     }
 </style>
 
-<div class="login">
-    <form class="loginForm">
-        <label for="username" class="loginForm__label">Username</label>
-        <input type="text" name="username" class="loginForm__input" placeholder="Dude Duderson" required>
-        <label for="password" class="loginForm__label">Password</label>
-        <input type="password" name="password" class="loginForm__input" placeholder="Dudes!!!!" required>
-        <button type="submit" class="loginForm__submitBtn">submit</button>
+<div class="signUp">
+    <form class="signUpForm">
+        <label for="username" class="signUpForm__label">Username</label>
+        <input type="text" name="username" class="signUpForm__input" placeholder="Dude Duderson" required>
+        <label for="password" class="signUpForm__label">Password</label>
+        <input type="password" name="password" class="signUpForm__input" placeholder="Dudes!!!!" required>
+        <button type="submit" class="signUpForm__submitBtn">submit</button>
     </form>
 </div>
 
 <script>
-    var form = document.querySelector('.loginForm');
-    var eSubmitBtn = document.querySelector('.loginForm__submitBtn');
+    var form = document.querySelector('.signUpForm');
+    var eSubmitBtn = document.querySelector('.signUpForm__submitBtn');
 
     form.querySelector('input').focus();
 
@@ -83,15 +83,15 @@
     }
 
     function sendLoginRequest(){
-        window.fetch('/api/login', {
+        window.fetch('/api/signUp', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                username: form.querySelector('.loginForm__input[name="username"]').value,
-                password: form.querySelector('.loginForm__input[name="password"]').value
+                username: form.querySelector('.signUpForm__input[name="username"]').value,
+                password: form.querySelector('.signUpForm__input[name="password"]').value
             })
         }).then(function(response){ return response.json();
         }).then(function(response){
