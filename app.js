@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
-var games = require('./routes/games');
 var users = require('./routes/users');
 var api = require('./routes/api');
 
@@ -29,7 +28,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/games', games);
 app.use('/users', users);
 app.use('/api', api);
 
