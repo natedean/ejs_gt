@@ -29,8 +29,4 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('./dist/styles'));
 });
 
-gulp.task('dev-server', shell.task([
-  'nodemon --harmony app.js'
-]));
-
 gulp.task('default', ['serve']);

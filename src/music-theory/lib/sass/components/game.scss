@@ -25,8 +25,8 @@
 }
 
 .gtGame {
-  width: 320px;
-  height: 215px;
+  width: 250px;
+  height: 175px;
   overflow: hidden;
   background: url("/images/table.png") no-repeat;
   background-size: cover;
@@ -36,14 +36,14 @@
   position: relative;
 
   @include breakpoint(mobile){
-    width: 450px;
-    height: 300px;
+    width: 300px;
+    height: 225px;
     margin: 4em auto;
   }
 
   @include breakpoint(tablet){
-    width: 600px;
-    height: 430px;
+    width: 400px;
+    height: 300px;
     margin: 2em auto;
   }
 
