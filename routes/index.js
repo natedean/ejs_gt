@@ -5,7 +5,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Guitar Thinker' });
 });
 
-router.get('/nns', function(req, res, next) {
+router.get('/nashville-number-system', function(req, res, next) {
   res.render('nns', { title: 'Nashville Number System' });
 });
 
