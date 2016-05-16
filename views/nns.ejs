@@ -2,34 +2,32 @@
 <%include ./partials/nav.ejs%>
 
 <div class="container">
-    <div  class="jumbotron text-center">
-        <h2>Nashville Number System</h2>
+    <div class="center-align ">
+        <h3>Nashville Number System</h3>
         <!-- PLAY AREA -->
         <div id="nns">
-            <h3 style="color:#ffa700" id="tutorial">Tutorial &amp; <a href="#examples" class="btn btn-warning">Examples in Every Key</a> </h3>
+            <h5 id="tutorial">Tutorial &amp; <a href="#examples" class="btn btn-warning">Examples in Every Key</a> </h5>
             <div>
                 <p>A typical number chart may look something like this:  </p>
-                <h3>1  &nbsp;&nbsp;&nbsp;6- &nbsp;&nbsp;5 &nbsp;&nbsp;&nbsp;4 </h3>
-                <h3>1 &nbsp;&nbsp;5/7  &nbsp;6- &nbsp;&nbsp;5</h3>
+                <h4>1  &nbsp;&nbsp;&nbsp;6- &nbsp;&nbsp;5 &nbsp;&nbsp;&nbsp;4 </h4>
+                <h4>1 &nbsp;&nbsp;5/7  &nbsp;6- &nbsp;&nbsp;5</h4>
                 <p>Every number is a measure. This particular chart is only 8 measures. </p>
                 <p>Dashes indicate minor chords. All other chords are assumed Major. Slashes show that a bass note has been altered.</p>
                 <p> If this song IN THE KEY OF C were written using chord symbols it would look like this: </p>
-                <h3>C  &nbsp;&nbsp;&nbsp;Am &nbsp;&nbsp;G &nbsp;&nbsp;&nbsp;F </h3>
-                <h3>C &nbsp;&nbsp;G/B  &nbsp;Am &nbsp;&nbsp;G</h3>
+                <h4>C  &nbsp;&nbsp;&nbsp;Am &nbsp;&nbsp;G &nbsp;&nbsp;&nbsp;F </h4>
+                <h4>C &nbsp;&nbsp;G/B  &nbsp;Am &nbsp;&nbsp;G</h4>
                 <p>If we changed the above number chart to THE KEY OF D it would look like this: </p>
-                <h3>D  &nbsp;&nbsp;&nbsp;Bm &nbsp;&nbsp;A &nbsp;&nbsp;&nbsp;G </h3>
-                <h3>D &nbsp;A/C#  Bm &nbsp;&nbsp;A</h3>
+                <h4>D  &nbsp;&nbsp;&nbsp;Bm &nbsp;&nbsp;A &nbsp;&nbsp;&nbsp;G </h4>
+                <h4>D &nbsp;A/C#  Bm &nbsp;&nbsp;A</h4>
                 <p>We would have had to re-write the chord symbol chart in order to change keys, but the number chart stays the same!
                 </p>
             </div>
         </div> <!-- END PLAY AREA -->
-    </div> <!-- END JUMBOTRON -->
+    </div>
 
-    <br>
-
-    <div  class="jumbotron text-center" id="examples">
-        <h2 style="margin-top:0">Common Number Patterns</h2>
-        <p>examples in every key</p>
+    <div  class="center-align" id="examples">
+        <h2>Common Number Patterns</h2>
+        <h5>examples in every key</h5>
         <!-- NUMBER PATTERNS -->
         <div id="numberPatterns">
             <div class="btn-group">
@@ -52,27 +50,35 @@
             <br>
             <br>
             <div class="row">
-                <div class="nns-chart col-sm-6">
-                    <h3>1  &nbsp;&nbsp;4 &nbsp;&nbsp;5</h3>
-                    <h3><span class="number" value="1">C</span><span>&nbsp;&nbsp;</span><span class="number" value="4">F</span><span>&nbsp;&nbsp;</span><span class="number" value="5">G</span></h3>
+                <div class="nns-chart col s12 m6">
+                    <div class="card-panel">
+                    <h4>1  &nbsp;&nbsp;4 &nbsp;&nbsp;5</h4>
+                    <h4><span class="number" value="1">C</span><span>&nbsp;&nbsp;</span><span class="number" value="4">F</span><span>&nbsp;&nbsp;</span><span class="number" value="5">G</span></h4>
                     <p>Very common in pop music.</p>
+                    </div>
                 </div>
-                <div class="nns-chart col-sm-6">
-                    <h3>2 &nbsp;&nbsp;5  &nbsp;&nbsp;1</h3>
-                    <h3><span class="number" value="2">D</span><span>&nbsp;&nbsp;</span><span class="number" value="5">G</span><span>&nbsp;&nbsp;</span><span class="number" value="1">C</span></h3>
-                    <p>Very common in jazz.</p>
+                <div class="nns-chart col s12 m6">
+                    <div class="card-panel">
+                        <h4>2 &nbsp;&nbsp;5  &nbsp;&nbsp;1</h4>
+                        <h4><span class="number" value="2">D</span><span>&nbsp;&nbsp;</span><span class="number" value="5">G</span><span>&nbsp;&nbsp;</span><span class="number" value="1">C</span></h4>
+                        <p>Very common in jazz.</p>
+                    </div>
                 </div>
             </div><!--/.row-->
             <div class="row">
-                <div class="nns-chart col-sm-6">
-                    <h3>1 &nbsp;&nbsp;5  &nbsp;&nbsp;6- &nbsp;&nbsp;4</h3>
-                    <h3><span class="number" value="1">C</span><span>&nbsp;&nbsp;</span><span class="number" value="5">G</span><span>&nbsp;&nbsp;</span><span class="number" value="6">A</span><span>m</span><span>&nbsp;&nbsp;</span><span class="number" value="4">F</span></h3>
-                    <p>Very common in pop music.</p>
-                </div>
-                <div class="nns-chart col-sm-6">
-                    <h3>6 &nbsp;&nbsp;2  &nbsp;&nbsp;5 &nbsp;&nbsp;1</h3>
-                    <h3><span class="number" value="6">A</span><span>&nbsp;&nbsp;</span><span class="number" value="2">D</span><span>&nbsp;&nbsp;</span><span class="number" value="5">G</span><span>&nbsp;&nbsp;</span><span class="number" value="1">C</span></h3>
-                    <p>Circle of fourths.</p>
+                <div class="nns-chart col s12 m6">
+                    <div class="card-panel">
+                        <h4>1 &nbsp;&nbsp;5  &nbsp;&nbsp;6- &nbsp;&nbsp;4</h4>
+                        <h4><span class="number" value="1">C</span><span>&nbsp;&nbsp;</span><span class="number" value="5">G</span><span>&nbsp;&nbsp;</span><span class="number" value="6">A</span><span>m</span><span>&nbsp;&nbsp;</span><span class="number" value="4">F</span></h4>
+                        <p>Very common in pop music.</p>
+                        </div>
+                    </div>
+                <div class="nns-chart col s12 m6">
+                    <div class="card-panel">
+                        <h4>6 &nbsp;&nbsp;2  &nbsp;&nbsp;5 &nbsp;&nbsp;1</h4>
+                        <h4><span class="number" value="6">A</span><span>&nbsp;&nbsp;</span><span class="number" value="2">D</span><span>&nbsp;&nbsp;</span><span class="number" value="5">G</span><span>&nbsp;&nbsp;</span><span class="number" value="1">C</span></h4>
+                        <p>Circle of fourths.</p>
+                    </div>
                 </div>
             </div><!--/.row-->
         </div> <!-- END NUMBER PATTERNS -->
