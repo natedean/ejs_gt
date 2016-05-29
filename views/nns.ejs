@@ -1,24 +1,49 @@
 <%include ./partials/head.ejs%>
 <%include ./partials/nav.ejs%>
 
-<div class="container">
+<style>
+    .nns-tutorial .nns-chart {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .number {
+        display: inline-block;
+    }
+</style>
+
+<div class="container main-container">
     <div class="center-align ">
-        <h3>Nashville Number System</h3>
+        <h3 style="margin: 1em 0">Nashville Number System</h3>
         <!-- PLAY AREA -->
-        <div id="nns">
-            <h5 id="tutorial">Tutorial &amp; <a href="#examples" class="btn btn-warning">Examples in Every Key</a> </h5>
+        <div id="nns" class="nns-tutorial">
+            <h5 id="tutorial" style="margin-bottom: 1.5em;">Tutorial &amp;
+                <a href="#examples" class="orange-text text-lighten-3">Examples in Every Key</a>
+            </h5>
             <div>
                 <p>A typical number chart may look something like this:  </p>
-                <h4>1  &nbsp;&nbsp;&nbsp;6- &nbsp;&nbsp;5 &nbsp;&nbsp;&nbsp;4 </h4>
-                <h4>1 &nbsp;&nbsp;5/7  &nbsp;6- &nbsp;&nbsp;5</h4>
+                <div class="nns-chart col s12 m6">
+                    <div class="card-panel">
+                        <h4>1  &nbsp;&nbsp;&nbsp;6- &nbsp;&nbsp;5 &nbsp;&nbsp;&nbsp;4 </h4>
+                        <h4>1 &nbsp;&nbsp;5/7  &nbsp;6- &nbsp;&nbsp;5</h4>
+                    </div>
+                </div>
                 <p>Every number is a measure. This particular chart is only 8 measures. </p>
                 <p>Dashes indicate minor chords. All other chords are assumed Major. Slashes show that a bass note has been altered.</p>
                 <p> If this song IN THE KEY OF C were written using chord symbols it would look like this: </p>
-                <h4>C  &nbsp;&nbsp;&nbsp;Am &nbsp;&nbsp;G &nbsp;&nbsp;&nbsp;F </h4>
-                <h4>C &nbsp;&nbsp;G/B  &nbsp;Am &nbsp;&nbsp;G</h4>
+                <div class="nns-chart col s12 m6">
+                    <div class="card-panel">
+                        <h4>C  &nbsp;&nbsp;&nbsp;Am &nbsp;&nbsp;G &nbsp;&nbsp;&nbsp;F </h4>
+                        <h4>C &nbsp;&nbsp;G/B  &nbsp;Am &nbsp;&nbsp;G</h4>
+                    </div>
+                </div>
                 <p>If we changed the above number chart to THE KEY OF D it would look like this: </p>
-                <h4>D  &nbsp;&nbsp;&nbsp;Bm &nbsp;&nbsp;A &nbsp;&nbsp;&nbsp;G </h4>
-                <h4>D &nbsp;A/C#  Bm &nbsp;&nbsp;A</h4>
+                <div class="nns-chart col s12 m6">
+                    <div class="card-panel">
+                        <h4>D  &nbsp;&nbsp;&nbsp;Bm &nbsp;&nbsp;A &nbsp;&nbsp;&nbsp;G </h4>
+                        <h4>D &nbsp;A/C#  Bm &nbsp;&nbsp;A</h4>
+                    </div>
+                </div>
                 <p>We would have had to re-write the chord symbol chart in order to change keys, but the number chart stays the same!
                 </p>
             </div>
@@ -30,23 +55,28 @@
         <h5>examples in every key</h5>
         <!-- NUMBER PATTERNS -->
         <div id="numberPatterns">
-            <div class="btn-group">
-                <button type="button" class="btn btn-lg btn-warning dropdown-toggle" data-toggle="dropdown">Key of&nbsp;  <span id="key">C</span>  &nbsp;<span class="caret"></span></button>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a class="btn btn-warning btn-sm" value="A">Key of A</a></li>
-                    <li><a class="btn btn-warning btn-sm" value="Bb">Key of Bb</a></li>
-                    <li><a class="btn btn-warning btn-sm" value="B">Key of B</a></li>
-                    <li><a class="btn btn-warning btn-sm" value="C">Key of C</a></li>
-                    <li><a class="btn btn-warning btn-sm" value="Db">Key of Db</a></li>
-                    <li><a class="btn btn-warning btn-sm" value="D">Key of D</a></li>
-                    <li><a class="btn btn-warning btn-sm" value="Eb">Key of Eb</a></li>
-                    <li><a class="btn btn-warning btn-sm" value="E">Key of E</a></li>
-                    <li><a class="btn btn-warning btn-sm" value="F">Key of F</a></li>
-                    <li><a class="btn btn-warning btn-sm" value="Gb">Key of Gb</a></li>
-                    <li><a class="btn btn-warning btn-sm" value="G">Key of G</a></li>
-                    <li><a class="btn btn-warning btn-sm" value="Ab">Key of Ab</a></li>
-                </ul>
-            </div>
+
+            <!-- Dropdown Trigger -->
+            <a class='dropdown-button btn btn-large' href='#' data-activates='keySelector' style="text-transform: none;">
+                <i class="material-icons right">mode_edit</i>
+                Key of&nbsp;  <span id="key">C</span>
+            </a>
+
+            <!-- Dropdown Structure -->
+            <ul id='keySelector' class='dropdown-content'>
+                <li><a value="A">Key of A</a></li>
+                <li><a value="Bb">Key of Bb</a></li>
+                <li><a value="B">Key of B</a></li>
+                <li><a value="C">Key of C</a></li>
+                <li><a value="Db">Key of Db</a></li>
+                <li><a value="D">Key of D</a></li>
+                <li><a value="Eb">Key of Eb</a></li>
+                <li><a value="E">Key of E</a></li>
+                <li><a value="F">Key of F</a></li>
+                <li><a value="Gb">Key of Gb</a></li>
+                <li><a value="G">Key of G</a></li>
+                <li><a value="Ab">Key of Ab</a></li>
+            </ul>
             <br>
             <br>
             <div class="row">

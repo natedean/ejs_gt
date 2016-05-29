@@ -13,7 +13,7 @@ var noteMap = {
     Ab : ["Ab","Bb","C","Db","Eb","F","G"]
 };
 
-var eKeyOptions = document.querySelectorAll('#numberPatterns .dropdown-menu li a');
+var eKeyOptions = document.querySelectorAll('#numberPatterns .dropdown-content li a');
 var eNumbers = document.querySelectorAll('.number');
 var eKey = document.querySelector('#key');
 
@@ -24,10 +24,21 @@ function clickHandler(e) {
     renderValues(key);
 }
 
+function animateNumber(eNumber) {
+    eNumber.style.transition = 'none';
+    eNumber.style.transform = 'scale(0)';
+
+    setTimeout(function(){
+        eNumber.style.transition = 'all 0.4s';
+        eNumber.style.transform = 'scale(1)';
+    }, 50);
+}
+
 function renderValues(key) {
     [].forEach.call(eNumbers, function(eNumber){
         var num = eNumber.getAttribute('value');
         eNumber.textContent = noteMap[key][num - 1];
+        animateNumber(eNumber);
     });
 }
 
