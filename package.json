@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "prestart": "open http://localhost:3000",
-    "start": "nodemon ./bin/www"
+    "dev": "nodemon ./bin/www",
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
