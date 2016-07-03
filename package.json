@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "prestart": "open http://localhost:3000",
     "dev": "nodemon ./bin/www",
     "start": "node ./bin/www"
   },
@@ -16,7 +15,6 @@
     "jsonwebtoken": "^5.7.0",
     "lodash": "^3.10.1",
     "materialize-css": "^0.97.6",
-    "mongoose": "^4.4.7",
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0"
   }
