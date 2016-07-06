@@ -14,7 +14,7 @@ export default function game() {
         <div class="gtGame__answerBtnRow row">
           <div class="gtGame__answerBtnContainer animate-repeat" ng-repeat="answer in vm.answers">
             <button
-              class="button button-primary gtGame__answerBtn"
+              class="button"
               ng-click="vm.submitAnswer($event, answer)">
               {{ ::answer.answer }}
             </button>

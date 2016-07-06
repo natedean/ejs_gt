@@ -14,24 +14,24 @@
     "lodash": "^3.10.1"
   },
   "devDependencies": {
-    "browser-sync": "^2.7.13",
+    "browser-sync": "^2.13.0",
     "del": "^1.2.0",
-    "gulp": "^3.8.11",
-    "gulp-autoprefixer": "^3.0.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean-css": "^2.0.11",
     "gulp-concat": "^2.5.2",
     "gulp-jshint": "^1.10.0",
-    "gulp-minify-css": "^1.2.0",
     "gulp-notify": "^2.2.0",
     "gulp-rename": "^1.2.2",
     "gulp-run": "^1.6.8",
-    "gulp-sass": "^2.0.2",
-    "gulp-shell": "^0.4.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-shell": "^0.4.3",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.4",
     "html-dist": "^0.1.0",
     "jshint-stylish": "^1.0.2",
-    "jspm": "^0.16.10"
+    "jspm": "^0.16.39"
   },
   "scripts": {
     "start": "nodemon app.js"
@@ -53,11 +53,9 @@
     "dependencies": {
       "angular": "npm:angular@^1.4.2",
       "angular-animate": "npm:angular-animate@^1.4.1",
-      "angularfire": "npm:angularfire@^1.1.1",
-      "bootstrap": "github:twbs/bootstrap@^3.3.4",
       "clean-css": "npm:clean-css@^3.4.5",
       "css": "github:systemjs/plugin-css@^0.1.12",
-      "d3": "github:mbostock/d3@^3.5.5",
+      "d3": "github:d3/d3@^3.5.5",
       "lodash": "npm:lodash@^3.9.3"
     },
     "devDependencies": {
