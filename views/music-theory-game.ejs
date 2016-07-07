@@ -2,11 +2,15 @@
 <%include ./partials/nav.ejs%>
 
 <div class="main-container">
-    <div id="app"></div>
+    <div id="app">
+        <button class="btn" id="increase">increase</button>
+        <button class="btn" id="decrease">increase</button>
+        <input type="text" id="input">
+        <div id="count"></div>
+        <div id="hello"></div>
+    </div>
 </div>
-
-<script>
-    document.getElementById('app').innerHTML =
-    '<h3 class="center">This game is... still being worked on.</h3>';
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/immutable/3.8.1/immutable.js"></script>
+<script src="https://npmcdn.com/@reactivex/rxjs/dist/global/Rx.umd.js"></script>
+<script src="js/music-theory/app.js"></script>
 <%include ./partials/footer.ejs%>
