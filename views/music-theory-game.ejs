@@ -1,11 +1,12 @@
 <%include ./partials/head.ejs%>
 <%include ./partials/nav.ejs%>
 
-<div ng-app="myApp" class="gtAppContainer">
-    <sidebar></sidebar>
-    <game><div class="loadingMessage">loading...</div></game>
+<div class="main-container">
+    <div id="app"></div>
 </div>
 
-<script src="/js/music-theory/app.min.js"></script>
-
+<script>
+    document.getElementById('app').innerHTML =
+    '<h3 class="center">This game is... still being worked on.</h3>';
+</script>
 <%include ./partials/footer.ejs%>
