@@ -17,6 +17,9 @@ pids
 # Don't check in compiled files, EVEN IF IT'S ONLY YOU... hahaha.
 dist
 
+# Big JS projects have their own git roots
+src
+
 # Don't check in api keys... please
 config.js
 
