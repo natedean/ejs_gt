@@ -1,0 +1,22 @@
+<%include ./partials/head.ejs%>
+<%include ./partials/nav.ejs%>
+
+  <chord-game-app>Loading...</chord-game-app>
+
+  <script src="cg/dist/vendor/es6-shim/es6-shim.js"></script>
+  <script src="cg/dist/vendor/reflect-metadata/Reflect.js"></script>
+  <script src="cg/dist/vendor/systemjs/dist/system.src.js"></script>
+  <script src="cg/dist/vendor/zone.js/dist/zone.js"></script>
+
+  <script>
+    System.config({
+        baseURL: '/cg/dist'
+    });  
+
+    System.import('system-config.js').then(function () {
+      System.import('main');
+    }).catch(console.error.bind(console));
+  </script>
+
+
+<%include ./partials/footer.ejs%>
