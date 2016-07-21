@@ -17,6 +17,14 @@ router.get('/music-theory-game', function(req, res, next) {
   res.render('music-theory-game', { title: 'Music Theory Game' });
 });
 
+router.get('/chord-game', function(req, res, next) {
+  res.render('chord-game', { title: 'Chord Game' });
+});
+
+router.get('/test', function(req, res, next) {
+  res.render('test', { title: 'Test' });
+});
+
 router.get('/login', function(req, res, next) {
   res.render('login', { title: 'Login' });
 });
