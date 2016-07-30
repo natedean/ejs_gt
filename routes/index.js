@@ -17,8 +17,8 @@ router.get('/music-theory-game', function(req, res, next) {
   res.render('music-theory-game', { title: 'Music Theory Game' });
 });
 
-router.get('/chord-game', function(req, res, next) {
-  res.render('chord-game', { title: 'Chord Game' });
+router.get('/guitar-chord-game', function(req, res, next) {
+  res.render('guitar-chord-game', { title: 'Guitar Chord Game' });
 });
 
 router.get('/login', function(req, res, next) {

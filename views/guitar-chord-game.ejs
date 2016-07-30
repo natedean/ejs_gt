@@ -1,7 +1,9 @@
 <%include ./partials/head.ejs%>
 <%include ./partials/nav.ejs%>
 
-  <chord-game-app>Loading...</chord-game-app>
+  <div class="container main-container">
+    <chord-game-app>Loading...</chord-game-app>
+  </div>
 
   <script src="cg/dist/vendor/es6-shim/es6-shim.js"></script>
   <script src="cg/dist/vendor/reflect-metadata/Reflect.js"></script>
@@ -10,8 +12,8 @@
 
   <script>
     System.config({
-        baseURL: '/cg/dist'
-    });  
+        baseURL: 'cg/dist'
+    });
 
     System.import('system-config.js').then(function () {
       System.import('main');
