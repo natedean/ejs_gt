@@ -3,20 +3,25 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.js"></script>
 <script>
+  const startGame = () => {
+    console.info('GAME STARTED');
+  }
+
   var socket = io.connect('localhost:3001');
-  socket.on('news', function (data) {
-    console.log(data);
-    socket.emit('my other event', { my: 'data' });
+
+  socket.on('startGame', function (data) {
+    startGame();
   });
 
-  let roomId;
-
-  socket.on('joinedRoom', (room) => {
-    console.log(`holy crap I joined room ${room.id}`);
-    console.dir(room);
-
-    roomId = room.id;
+  socket.on('answerEvent', (room) => {
+    console.log('answer event!', room);
   });
+
+  const clickHandler = (e) => {
+    socket.emit('answerEvent', { isCorrect: true });
+  }
+
+  document.addEventListener('click', clickHandler);
 
 
 </script>

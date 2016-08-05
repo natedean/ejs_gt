@@ -1,9 +1,10 @@
 'use strict';
 
 const io = require('./app').io;
+const uuid = require('node-uuid');
 
 const createNewRoom = (playerId) => ({
-  id: Math.ceil(Math.random() * 10),
+  id: uuid.v4(),
   players: []
 });
 
@@ -36,19 +37,27 @@ io.on('connection', function (socket) {
   // find the first available room id
   let roomId = findAvailableRoomId(rooms);
 
-  // add player to the first available room id
+  // add player to the first available room
   rooms = addPlayer(rooms, roomId, playerId);
+
+  const myRoom = rooms.find(x => x.id === roomId);
 
   // socket, join room
   socket.join(roomId);
 
-  socket.emit('joinedRoom', rooms.find((x) => x.id === roomId));
+  socket.on('answerEvent', (data) => {
 
-  socket.to(roomId).emit('news', { hello: `hello room ${roomId}` });
 
-  socket.on('my other event', function (data) {
-    console.log(data);
+
+    socket.emit('answerEvent', myRoom); // the client will optimistically update, but then we need to sync up just in case
+    socket.to(roomId).emit('answerEvent', myRoom); // notify the room!
   });
+
+  // start game, if able
+  if (myRoom.players.length === 2) {
+    socket.emit('startGame', myRoom); // tell me to startGame
+    socket.to(roomId).emit('startGame', myRoom); // tell others in room to startGame
+  }
 
   socket.on('disconnect', () => console.log(`disconnected from ${roomId}`));
 });
