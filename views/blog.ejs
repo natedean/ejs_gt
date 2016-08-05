@@ -3,14 +3,16 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.js"></script>
 <script>
-  const startGame = () => {
-    console.info('GAME STARTED');
+  const startGame = (data) => {
+    console.info('GAME STARTED', data);
   }
 
   var socket = io.connect('localhost:3001');
 
+  socket.on('joined', x => console.log(x));
+
   socket.on('startGame', function (data) {
-    startGame();
+    startGame(data);
   });
 
   socket.on('answerEvent', (room) => {
