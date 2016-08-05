@@ -19,9 +19,7 @@ const addPlayer = (rooms, roomId, playerId) => {
   return rooms.map((x) => {
     if (x.id !== roomId) { return x; }
 
-    const y = Object.assign({}, x, { players: x.players.concat([playerId]) });
-
-    return y;
+    return Object.assign({}, x, { players: x.players.concat([playerId]) });
   });
 };
 
@@ -30,15 +28,18 @@ const findAvailableRoomId = (rooms) => rooms.filter(x => x.players.length < 2)[0
 let rooms = [];
 
 io.on('connection', function (socket) {
-  // somehow we need to get the current connecting player's id... no idea
-  const playerId = socket.client.id;
+  const playerId = socket.client.id; // this really needs to pass the players mongo uid if available
 
+  // if there are no empty rooms, add a room.
   rooms = addRoomIfNecessary(rooms);
 
+  // find the first available room id
   let roomId = findAvailableRoomId(rooms);
 
+  // add player to the first available room id
   rooms = addPlayer(rooms, roomId, playerId);
 
+  // socket, join room
   socket.join(roomId);
 
   socket.emit('joinedRoom', rooms.find((x) => x.id === roomId));
