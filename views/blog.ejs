@@ -7,12 +7,16 @@
     console.info('GAME STARTED', data);
   }
 
-  var socket = io.connect('localhost:3001');
+  const socket = io.connect('localhost:3001');
 
   socket.on('joined', x => console.log(x));
 
   socket.on('startGame', function (data) {
     startGame(data);
+  });
+
+  socket.on('endGame', function(data) {
+    console.log('Game ended!', data);
   });
 
   socket.on('answerEvent', (room) => {
