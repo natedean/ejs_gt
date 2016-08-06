@@ -13,7 +13,7 @@ const createNewRoom = () => {
   });
 };
 
-const createPlayer = () => ({
+const createPlayer = () => Immutable.Map({
   correctAnswers: 0,
   incorrectAnswers: 0
 });
@@ -49,9 +49,14 @@ io.on('connection', function (socket) {
 
   socket.on('answerEvent', (data) => {
     // update game object!
+    if (data.isCorrect) {
+      RoomsMap = RoomsMap.setIn([roomId, 'players', playerId, 'correctAnswers'], RoomsMap.getIn([roomId, 'players', playerId, 'correctAnswers']) + 1);
+    } else {
+      RoomsMap = RoomsMap.setIn([roomId, 'players', playerId, 'incorrectAnswers'], RoomsMap.getIn([roomId, 'players', playerId, 'incorrectAnswers']) + 1);
+    }
 
-    socket.emit('answerEvent', myRoom); // the client will optimistically update, but then we need to sync up just in case
-    socket.to(roomId).emit('answerEvent', myRoom); // notify the room!
+    socket.emit('answerEvent', RoomsMap.get(roomId).toJS()); // the client will optimistically update, but then we need to sync up just in case
+    socket.to(roomId).emit('answerEvent', RoomsMap.get(roomId).toJS()); // notify the room!
   });
 
   console.log('somebody joined! RoomsMap.size: ', RoomsMap.size);
