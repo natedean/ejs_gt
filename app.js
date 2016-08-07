@@ -12,11 +12,6 @@ var api = require('./routes/api');
 
 var app = express();
 
-// socket.io hookup
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
-server.listen(3001);
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -65,4 +60,4 @@ app.use(function(err, req, res, next) {
 });
 
 
-module.exports = { app, io };
+module.exports = app;
