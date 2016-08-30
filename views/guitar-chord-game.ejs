@@ -1,24 +1,19 @@
 <%include ./partials/head.ejs%>
 <%include ./partials/nav.ejs%>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.js"></script>
+
+
   <div class="container main-container">
-    <chord-game-app>Loading...</chord-game-app>
+    <chord-game-app>
+      <div class="progress">
+        <div class="indeterminate"></div>
+      </div>
+    </chord-game-app>
   </div>
 
-  <script src="cg/dist/vendor/es6-shim/es6-shim.js"></script>
-  <script src="cg/dist/vendor/reflect-metadata/Reflect.js"></script>
-  <script src="cg/dist/vendor/systemjs/dist/system.src.js"></script>
-  <script src="cg/dist/vendor/zone.js/dist/zone.js"></script>
-
-  <script>
-    System.config({
-        baseURL: 'cg/dist'
-    });
-
-    System.import('system-config.js').then(function () {
-      System.import('main');
-    }).catch(console.error.bind(console));
-  </script>
-
+  <script type="text/javascript" src="cg/dist/inline.js"></script>
+  <script type="text/javascript" src="cg/dist/polyfills.5113661bf4bd499f3401.bundle.js"></script>
+  <script type="text/javascript" src="cg/dist/main.de14fd77e5d43ec9feb0.bundle.js"></script></body>
 
 <%include ./partials/footer.ejs%>
