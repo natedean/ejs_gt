@@ -1,7 +1,3 @@
-var random = require('lodash/number/random');
-
-// Please put into mongodb/couchdb or whatever
-
 var questions = [{question: "How many sharps in the key of C Major?", answers: [{answer: 0, correct: true},{answer: 1,correct: false},{answer: 2,correct: false},{answer: 3,correct: false}]},
     {question: "How many sharps in the key of G Major?", answers: [{answer: 1, correct: true},{answer: 0,correct: false},{answer: 2,correct: false},{answer: 3,correct: false}]},
     {question: "How many sharps in the key of D Major?", answers: [{answer: 2, correct: true},{answer: 0,correct: false},{answer: 1,correct: false},{answer: 3,correct: false}]},
@@ -82,9 +78,7 @@ var questions = [{question: "How many sharps in the key of C Major?", answers: [
     {question: "What is relative minor of Cb Major?", answers: [{answer: "Abmin", correct: true},{answer: "Dbmin",correct: false},{answer: "Ebmin",correct: false},{answer: "Amin",correct: false}]}];
 
 module.exports = function(req, res, next){
-    var arrLength = questions.length;
-    var rand = random(0, arrLength - 1);
-    var question = questions[rand];
+    var question = questions[Math.floor(Math.random() * questions.length)];
 
     res.send(question);
 };
