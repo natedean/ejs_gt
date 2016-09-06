@@ -1,5 +1,9 @@
-var express = require('express');
-var router = express.Router();
+'use strict';
+
+const express = require('express');
+const router = express.Router();
+const db = require('../db');
+
 
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Guitar Thinker' });
@@ -19,6 +23,15 @@ router.get('/music-theory-game', function(req, res, next) {
 
 router.get('/guitar-chord-game', function(req, res, next) {
   res.render('guitar-chord-game', { title: 'Guitar Chord Game' });
+});
+
+router.get('/leaderboard', function(req, res, next) {
+
+  db.User.find({}, 'username gcgScore').sort({gcgScore: -1}).limit(10).exec((err, users) => {
+    if (err) return console.error(err, 'brosef');
+
+    res.render('leaderboard', { title: 'Guitar Chord Game', users: users });
+  });
 });
 
 router.get('/login', function(req, res, next) {
