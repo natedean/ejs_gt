@@ -1,5 +1,10 @@
 <ul>
 <% users.forEach(function(user){ %>
-    <h2><%= user.username %></h2>
-	<% }); %>
+    <table>
+        <tr>
+            <td><%= user.username %></td>
+            <td><%= user.gcgScore %></td>
+        </tr>
+    </table>
+<% }); %>
 </ul>
