@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "nodemon ./bin/www",
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "now-build": "now -e MONGO_URI=@mongo_uri"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
