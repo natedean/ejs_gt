@@ -13,7 +13,10 @@ router.get('/nashville-number-system', function(req, res, next) {
 });
 
 router.get('/blog', function(req, res, next) {
-  res.render('blog', { title: 'Blog' });
+  db.updateAndReportBlogViewCount().then(count => {
+    console.log(count)
+    res.render('blog', { title: 'Blog', count });
+  });
 });
 
 router.get('/music-theory-game', function(req, res, next) {
