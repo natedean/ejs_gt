@@ -53,39 +53,6 @@ const MONGO_URI = process.env.MONGO_URI;
 //         });
 // });
 
-const createNewUser = (username) => {
-    const newDoc = {
-        username: username,
-        gtScore: 0,
-        _created_at: new Date(),
-        _updated_at: new Date()
-    };
-
-    return getDbAndCollectionHandle('users').then(({collection, db}) => {
-        return collection.insertOne(newDoc, { returnOriginal: false }).then(res => {
-            console.log('inserted!', username);
-            db.close();
-            return updateUser(username);
-        })
-    });
-};
-
-const updateUser = (username) => {
-    // assuming usernames are unique...
-    return getDbAndCollectionHandle('users').then(({collection, db}) => {
-        return collection.findOneAndUpdate({username: username}, {$inc: {gtScore: 1}, $set: {_updated_at: new Date()}}, { returnOriginal: false })
-            .then(res => {
-                db.close();
-
-                if (!res.value) { return createNewUser(username) }
-
-                console.log('not inserting');
-
-                return res;
-            })
-    });
-};
-
 const updateAndReportBlogViewCount = () => {
     return getDbAndCollectionHandle('page-counts').then(({collection, db}) => {
         return collection.findOneAndUpdate({ pagename : 'blog' }, {$inc: {count: 1}}, { returnOriginal: false })
@@ -97,8 +64,7 @@ const updateAndReportBlogViewCount = () => {
 };
 
 const db = {
-    updateAndReportBlogViewCount,
-    updateUser
+    updateAndReportBlogViewCount
 };
 
 module.exports = db;
