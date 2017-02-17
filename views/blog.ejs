@@ -1,37 +1,6 @@
 <%include ./partials/head.ejs%>
 <%include ./partials/nav.ejs%>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.js"></script>
-<script>
-  const startGame = (data) => {
-    console.info('GAME STARTED', data);
-  }
-
-  const socket = io.connect('https://gtsockets-zijlijoygm.now.sh');
-
-  socket.on('joined', x => console.log(x));
-
-  socket.on('startGame', function (data) {
-    startGame(data);
-  });
-
-  socket.on('endGame', function(data) {
-    console.log('Game ended!', data);
-  });
-
-  socket.on('answerEvent', (room) => {
-    console.log('answer event!', room);
-  });
-
-  const clickHandler = (e) => {
-    socket.emit('answerEvent', { isCorrect: true });
-  }
-
-  document.addEventListener('click', clickHandler);
-
-
-</script>
-
 <div class="main-container">
   <h1>Count: <%= count %></h1>
   <div class="container" style="">

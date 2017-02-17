@@ -53,22 +53,60 @@ const MONGO_URI = process.env.MONGO_URI;
 //         });
 // });
 
+const createNewUser = (username) => {
+    const newDoc = {
+        username: username,
+        gtScore: 0,
+        _created_at: new Date(),
+        _updated_at: new Date()
+    };
+
+    return getDbAndCollectionHandle('users').then(({collection, db}) => {
+        return collection.insertOne(newDoc, { returnOriginal: false }).then(res => {
+            console.log('inserted!', username);
+            db.close();
+            return updateUser(username);
+        })
+    });
+};
+
+const updateUser = (username) => {
+    // assuming usernames are unique...
+    return getDbAndCollectionHandle('users').then(({collection, db}) => {
+        return collection.findOneAndUpdate({username: username}, {$inc: {gtScore: 1}, $set: {_updated_at: new Date()}}, { returnOriginal: false })
+            .then(res => {
+                db.close();
+
+                if (!res.value) { return createNewUser(username) }
+
+                console.log('not inserting');
+
+                return res;
+            })
+    });
+};
+
 const updateAndReportBlogViewCount = () => {
-    return MongoClient.connect(MONGO_URI)
-        .then((db) => {
-            const col = db.collection('page-counts');
-            // Show that duplicate records got dropped
-            return col.findOneAndUpdate({ pagename : 'blog' }, {$inc: {count: 1}}, { returnOriginal: false })
-                .then((res) => {
-                    db.close();
-                    console.dir(res);
-                    return res.value.count;
-                });
-        });
+    return getDbAndCollectionHandle('page-counts').then(({collection, db}) => {
+        return collection.findOneAndUpdate({ pagename : 'blog' }, {$inc: {count: 1}}, { returnOriginal: false })
+            .then((res) => {
+                db.close();
+                return res.value.count;
+            });
+    });
 };
 
 const db = {
-    updateAndReportBlogViewCount
+    updateAndReportBlogViewCount,
+    updateUser
 };
 
 module.exports = db;
+
+function getDbAndCollectionHandle(collectionName) {
+    return MongoClient.connect(MONGO_URI)
+        .then(db => ({
+            collection: db.collection(collectionName),
+            db
+        }));
+}
