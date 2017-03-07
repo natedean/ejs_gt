@@ -36,8 +36,8 @@ router.get('/leaderboard', function(req, res, next) {
   });
 });
 
-router.get('/user-table', (req, res, next) => {
-  res.render('user-table', { title: 'User Table' });
+router.get('/stats-page', (req, res, next) => {
+  res.render('stats-page', { title: 'Stats' });
 });
 
 router.get('/login', function(req, res, next) {
