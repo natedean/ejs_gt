@@ -36,8 +36,12 @@ router.get('/leaderboard', function(req, res, next) {
   });
 });
 
-router.get('/stats-page', (req, res, next) => {
-  res.render('stats-page', { title: 'Stats' });
+router.get('/stats', (req, res, next) => {
+  res.render('stats', { title: 'Stats' });
+});
+
+router.get('/game', (req, res, next) => {
+    res.render('game', { title: 'Game' });
 });
 
 router.get('/login', function(req, res, next) {
